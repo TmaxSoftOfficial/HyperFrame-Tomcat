@@ -89,8 +89,21 @@ ${APACHE_HOME}/conf에서 httpd.conf 파일에 아래의 내용을 추가
               JkMount /*.jsp worker1						# /*.jsp 파일은 worker1에게 넘긴다         
       </IfModule>
 
+----------------------------------------
 
+- Nginx 웹서버
+${TOMCAT_HOME}/conf의 nginx.conf에서 아래의 설정을 확인.
 
+         server {
+             listen       80;                            #Nginx Port
+             server_name localhost;
+            location / {
+                root   html;
+                index  index.html index.htm;
+                proxy_pass http://127.0.0.1:8080;        #Tomcat Port
+            }
+
+위의 proxy_pass http://127.0.0.1:8080; 부분과 같이 Tomcat의 Port 번호로 추가 해야 함
 
 # 라이센스
 
