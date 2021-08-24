@@ -30,7 +30,7 @@
 # 환경 설정 파일
 
 - ${TOMCAT_HOME}/conf/server.xml
-- <Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" /> 에서 port 변경 가능
+      <Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" /> 에서 port 변경 가능
 
 # 버전 확인
 - 
