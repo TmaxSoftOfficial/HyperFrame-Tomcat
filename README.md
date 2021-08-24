@@ -48,7 +48,9 @@
 3. 위의 native 폴더에서 아래의 명령어로 configure를 적용
 
       ./configure --with-apxs=${APACHE_HOME}/bin/apxs
+      
       make
+      
       make install
 
 make를 하고나서 ${APACHE_HOME}/modules 폴더에 mkd_jk.so 파일이 생성되었는지 확인
