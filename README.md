@@ -71,8 +71,8 @@ Apache와 Tomcat의 포트를 연결하는 환경설정 파일을 작성 (${APAC
 
       worker.list=worker1
 
-      worker.worker1.type=ajp13		  # AJP1.3 프로토콜을 사용
-      worker.worker1.host=localhost	# 톰캣은 local에서 돌고 있습니다.
+      worker.worker1.type=ajp13		# AJP1.3 프로토콜을 사용
+      worker.worker1.host=localhost	      # 톰캣은 local에서 돌고 있습니다.
       worker.worker1.port=8009	  	# 연결할 톰캣의 포트 번호
 
 6. Apache와 Tomcat 연동
@@ -83,10 +83,10 @@ ${APACHE_HOME}/conf에서 httpd.conf 파일에 아래의 내용을 추가
       <IfModule mod_jk.c>
               JkWorkersFile /usr/local/victolee/apache2.0.64/conf/workers.properties	# 실행파일
               JkLogFile /usr/local/victolee/apache2.0.64/logs/mod_jk.log			# 로그 경로
-              JkLogLevel info							# 로그레벨 설정
-              JkLogStampFormat "[%a %b %d %H:%M:%S %Y]"			# 로그 포맷
-              JkShmFile /usr/local/victolee/apache2.0.64/logs/mod_jk.shm		# 공유파일
-              JkMount /*.jsp worker1						# /*.jsp 파일은 worker1에게 넘긴다         
+              JkLogLevel info							                        # 로그레벨 설정
+              JkLogStampFormat "[%a %b %d %H:%M:%S %Y]"			                  # 로그 포맷
+              JkShmFile /usr/local/victolee/apache2.0.64/logs/mod_jk.shm		      # 공유파일
+              JkMount /*.jsp worker1						                  # /*.jsp 파일은 worker1에게 넘긴다         
       </IfModule>
 
 ----------------------------------------
