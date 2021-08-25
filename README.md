@@ -141,8 +141,6 @@ ${TOMCAT_HOME}/conf의 nginx.conf에서 아래의 설정을 확인.
 
 위의 proxy_pass http://127.0.0.1:8080; 부분과 같이 Tomcat의 Port 번호로 추가 해야 함
 
-## 라이센스
-
 ## 버전이력
 
 apache-tomcat-9.0.52
