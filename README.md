@@ -25,28 +25,28 @@
 $ cd /home/username/apache-tomcat/
     apache-tomcat
     ├── bin
-    │   ├── bootstrap.jar 		    <----------------------- tomcat 서버가 구동될 때 사용되는 main( ) 메소드 포함
+    │   ├── bootstrap.jar           <----------------------- tomcat 서버가 구동될 때 사용되는 main( ) 메소드 포함
     │   ├── tomcat-juil.jar
     │   ├── common-daemon.jar
-    │   ├── catalina.sh         	<----------------------- CATALINA 서버의 제어 스크립트
+    │   ├── catalina.sh             <----------------------- CATALINA 서버의 제어 스크립트
     │   ├── ciphers.sh
-    │   ├── configtest.sh		    <----------------------- CATALINA 서버의 설정 스크립트
+    │   ├── configtest.sh           <----------------------- CATALINA 서버의 설정 스크립트
     │   ├── daemon.sh
     │   ├── makebase.sh
-    │   ├── setclasspath.sh	        <----------------------- JAVA_HOME 또는 JRE_HOME이 세팅되지 않았을 경우 세팅
-    │   ├── shutdown.sh 		    <----------------------- CATALINA 서버를 중지하는 스크립트
-    │   ├── startup.sh		        <----------------------- CATALINA 서버를 시작하는 스크립트
+    │   ├── setclasspath.sh         <----------------------- JAVA_HOME 또는 JRE_HOME이 세팅되지 않았을 경우 세팅
+    │   ├── shutdown.sh             <----------------------- CATALINA 서버를 중지하는 스크립트
+    │   ├── startup.sh              <----------------------- CATALINA 서버를 시작하는 스크립트
     │   ├── tool-wrapper.sh
     │   └── version.sht
     ├── common
     ├── conf
     │   ├── catalina.policy
     │   ├── catalina.properties	
-    │   ├── context.xml 		    <----------------------- 세션, 쿠키 저장 경로등을 지정하는 설정 파일
+    │   ├── context.xml             <----------------------- 세션, 쿠키 저장 경로등을 지정하는 설정 파일
     │   ├── logging.properties	
-    │   ├── server.xml		        <----------------------- Tomcat 설정에서 가장 중요, Service, Connertor 등과 같은 주요 기능 설정 가능
-    │   ├── tomcat-users.xml	    <----------------------- Tomcat 의 manager 기능을 사용하기 위해 사용자 권한을 설정	
-    │   └── web.xml		            <----------------------- Tomcat의 환경설정 파일	   
+    │   ├── server.xml              <----------------------- Tomcat 설정에서 가장 중요, Service, Connertor 등과 같은 주요 기능 설정 가능
+    │   ├── tomcat-users.xml        <----------------------- Tomcat 의 manager 기능을 사용하기 위해 사용자 권한을 설정	
+    │   └── web.xml                 <----------------------- Tomcat의 환경설정 파일	   
  </pre>
 
 ## 로그 위치 
@@ -113,12 +113,12 @@ ${APACHE_HOME}/conf에서 httpd.conf 파일에 아래의 내용을 추가
 <pre>
       LoadModule jk_module            modules/mod_jk.so
       <IfModule mod_jk.c>
-              JkWorkersFile /usr/local/victolee/apache2.0.64/conf/workers.properties	# 실행파일
-              JkLogFile /usr/local/victolee/apache2.0.64/logs/mod_jk.log			    # 로그 경로
-              JkLogLevel info							                                # 로그레벨 설정
-              JkLogStampFormat "[%a %b %d %H:%M:%S %Y]"			                        # 로그 포맷
-              JkShmFile /usr/local/victolee/apache2.0.64/logs/mod_jk.shm		        # 공유파일
-              JkMount /*.jsp worker1						                            # /*.jsp 파일은 worker1에게 넘긴다         
+              JkWorkersFile /usr/local/victolee/apache2.0.64/conf/workers.properties    # 실행파일
+              JkLogFile /usr/local/victolee/apache2.0.64/logs/mod_jk.log                # 로그 경로
+              JkLogLevel info                                                           # 로그레벨 설정
+              JkLogStampFormat "[%a %b %d %H:%M:%S %Y]"                                 # 로그 포맷
+              JkShmFile /usr/local/victolee/apache2.0.64/logs/mod_jk.shm                # 공유파일
+              JkMount /*.jsp worker1                                                    # /*.jsp 파일은 worker1에게 넘긴다         
       </IfModule>
 
 </pre>
