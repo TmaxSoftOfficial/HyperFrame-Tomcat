@@ -68,13 +68,13 @@ ${TOMCAT_HOME}/home/username/apache-tomcat/lib > java -cp catalina.jar org.apach
 
 ### Apache 웹서버
 
-1. Apache와 Tomcat을 연동하기 위해서는 mod-jdk 플러그인이 필요
-2. 첨부한 tomcat-connectiors-1.2.43.src.tar.gz를 다운로드 받고 아래와 같은 명령어로 압축해제
+#### 1. Apache와 Tomcat을 연동하기 위해서는 mod-jdk 플러그인이 필요
+#### 2. 첨부한 tomcat-connectiors-1.2.43.src.tar.gz를 다운로드 받고 아래와 같은 명령어로 압축해제
 
       tar xvfz tomcat-connectors-1.2.43-src.tar.gz
       cd tomcat-connectors-1.2.43-src/native
 
-3. 위의 native 폴더에서 아래의 명령어로 configure를 적용
+#### 3. 위의 native 폴더에서 아래의 명령어로 configure를 적용
 
       ./configure --with-apxs=${APACHE_HOME}/bin/apxs
       
@@ -84,7 +84,7 @@ ${TOMCAT_HOME}/home/username/apache-tomcat/lib > java -cp catalina.jar org.apach
 
 make를 하고나서 ${APACHE_HOME}/modules 폴더에 mkd_jk.so 파일이 생성되었는지 확인
 
-4. Tomcat에서 AJP 프로토콜 확인
+#### 4. Tomcat에서 AJP 프로토콜 확인
 
 ${TOMCAT_HOME}/conf의 server.xml에서 아래의 설정을 확인. 주석처리 되어있다면 주석해제
 
@@ -94,7 +94,7 @@ ${TOMCAT_HOME}/conf의 server.xml에서 아래의 설정을 확인. 주석처리
                     redirectPort="8443" />
 
 
-5. Apache의 worker 설정
+#### 5. Apache의 worker 설정
 
 Apache와 Tomcat의 포트를 연결하는 환경설정 파일을 작성 (${APACHE_HOME}/conf/workers.properties 파일을 생성)
 
@@ -106,7 +106,7 @@ Apache와 Tomcat의 포트를 연결하는 환경설정 파일을 작성 (${APAC
       worker.worker1.port=8009	  	      # 연결할 톰캣의 포트 번호
 </pre>
 
-6. Apache와 Tomcat 연동
+#### 6. Apache와 Tomcat 연동
 
 ${APACHE_HOME}/conf에서 httpd.conf 파일에 아래의 내용을 추가
 
