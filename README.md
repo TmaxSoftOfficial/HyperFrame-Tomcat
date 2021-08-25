@@ -65,21 +65,84 @@
         │    ├── context.xml         <---------------- 세션, 쿠키 저장 경로등을 지정하는 설정 파일
         │    ├── logging.properties	
         │    ├── server.xml          <---------------- Tomcat 설정에서 가장 중요, Service, Connertor 등과 같은 주요 기능 설정 가능
-        │    ├── tomcat-users.xml    <---------------- Tomcat 의 manager 기능을 사용하기 위해 사용자 권한을 설정	
+        │    ├── tomcat-users.xml    <---------------- Tomcat의 manager 기능을 사용하기 위해 사용자 권한을 설정	
         │    └── web.xml             <---------------- Tomcat의 환경설정 파일	   
         └── common
 
 
-## 로그 위치 
+## 로그 정보
 
-- ${TOMCAT_HOME}/logs/catalina.out : 서버상에서 발생한 모든 내용을 기록한 파일
-- ${TOMCAT_HOME}/logs/catalina.yyyy-mm-dd.log : 톰캣에서 생기는 로그만을 기록
-- ${TOMCAT_HOME}/logs/manager.log : Tomcat Manager Web App 로그
+### 1) 로그 경로
 
-## 환경 설정 파일
+    # 서버상에서 발생한 모든 내용을 기록한 Log
+    $ {TOMCAT_HOME}/logs/catalina.out
+    
+    # Tomcat에서 발생하는 Log
+    $ {TOMCAT_HOME}/logs/catalina.yyyy-mm-dd.log
+    
+    # Tomcat Manager Web App Log
+    $ {TOMCAT_HOME}/logs/manager.log 
 
-- ${TOMCAT_HOME}/conf/server.xml
-      <Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" /> 에서 port 변경 가능
+## 환경 설정 파일 정보
+
+### 1) 환경 설정 파일 경로
+
+    $ {TOMCAT_HOME}/conf/server.xml
+    
+### 2) 환경 설정
+
+* Port 변경
+    
+    $ vi ${TOMCAT_HOME}/conf/server.xml
+    ...
+    <Service name="Catalina">
+        <Connector port="80" protocol="HTTP/1.1"
+                   connectionTimeout="20000"
+                   redirectPort="8443" />
+    ...
+    </Service>
+
+* 프로토콜 별 Connector 추가 및 삭제
+
+
+    ...
+    <Service name="Catalina">
+        # http Connector
+        <Connector port="8080" protocol="HTTP/1.1" 
+                   connectionTimeout="20000" 
+                   redirectPort="8443" />
+        # https Connector
+        <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
+               maxThreads="150" scheme="https" secure="true"
+               clientAuth="false" sslProtocol="TLS" />
+        # ajp Connector
+        <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
+    ...
+    </Service>
+    ...
+
+* Web Application 추가
+    
+    ...
+    <Host name="localhost" appBase="webapps"
+          unpackWARs="true" autoDeploy="true">
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log" suffix=".txt"
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+        # https:localhost:Port/sample/, docBase = Page Directory 
+        <Context path = "/sample" docBase = "/home/minjun/tomcat/server1/sample/" />
+    </Host>
+    ...
+
+
+
+
+
+
+
+
+
+
 
 ## 버전 확인
 
