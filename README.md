@@ -1,53 +1,74 @@
 ## HyperFrameOE-Tomcat
 
-- 업로드된 바이너리는 HyperFrame Open Edition Tomcat 제품 설치를 위한 파일임
+업로드된 바이너리는 HyperFrame Open Edition Tomcat 제품 설치를 위한 파일
 
-## 사전작업
+## 설치 파일
 
-- Java 버전 8 이상 권장
-- apache-tomcat-9.0.52.tar.gz 파일 필요
-- 웹서버 연동을 위해서는 tomcat-connectors-1.2.48-src.tar.gz 파일 필요
+### Tomcat
 
-## 설치방법
+* Version : apache-tomcat-9.0.52
+* Note : https://tomcat.apache.org/download-90.cgi
 
-- apache-tomcat-9.0.52.tar.gz 압축 파일을 춤
-- ${TOMCAT_HOME}/bin의 startup.sh 파일을 기동
-- 웹어드민을 http:// ip:8080 주소로 접속해서 WEB UI 화면을 확인
+### Tomcat-Connectors
 
-## 실행/종료 명령어
+* Version : tomcat-connectors-1.2.48
+* Note : https://tomcat.apache.org/download-connectors.cgi
 
-- 실행: ${TOMCAT_HOME}/bin > ./startup.sh
-- 종료: ${TOMCAT_HOME}/bin > ./shutdown.sh 
+## 설치 및 실행
+
+### 1) Tomcat 압축 풀기
+
+    $ tar -zxf apache-tomcat-9.0.52.tar.gz
+
+### 2) Port 확인 및 변경
+
+    $ vi ${TOMCAT_HOME}/conf/server.xml
+    ...
+    <Service name="Catalina">
+        <Connector port="80" protocol="HTTP/1.1"
+                   connectionTimeout="20000"
+                   redirectPort="8443" />
+    ...
+    </Service>
+
+### 3) Tomcat 실행
+
+    $ cd ${TOMCAT_HOME}/bin/
+    $ ./startup.sh
+    
+### 4) Tomcat 종료
+
+    $ cd ${TOMCAT_HOME}/bin/
+    $ ./shutdown.sh
 
 ## 디렉토리 구조
 
-<pre>
-$ cd /home/username/apache-tomcat/
-    apache-tomcat
-    ├── bin
-    │   ├── bootstrap.jar           <----------------------- tomcat 서버가 구동될 때 사용되는 main( ) 메소드 포함
-    │   ├── tomcat-juil.jar
-    │   ├── common-daemon.jar
-    │   ├── catalina.sh             <----------------------- CATALINA 서버의 제어 스크립트
-    │   ├── ciphers.sh
-    │   ├── configtest.sh           <----------------------- CATALINA 서버의 설정 스크립트
-    │   ├── daemon.sh
-    │   ├── makebase.sh
-    │   ├── setclasspath.sh         <----------------------- JAVA_HOME 또는 JRE_HOME이 세팅되지 않았을 경우 세팅
-    │   ├── shutdown.sh             <----------------------- CATALINA 서버를 중지하는 스크립트
-    │   ├── startup.sh              <----------------------- CATALINA 서버를 시작하는 스크립트
-    │   ├── tool-wrapper.sh
-    │   └── version.sht
-    ├── common
-    ├── conf
-    │   ├── catalina.policy
-    │   ├── catalina.properties	
-    │   ├── context.xml             <----------------------- 세션, 쿠키 저장 경로등을 지정하는 설정 파일
-    │   ├── logging.properties	
-    │   ├── server.xml              <----------------------- Tomcat 설정에서 가장 중요, Service, Connertor 등과 같은 주요 기능 설정 가능
-    │   ├── tomcat-users.xml        <----------------------- Tomcat 의 manager 기능을 사용하기 위해 사용자 권한을 설정	
-    │   └── web.xml                 <----------------------- Tomcat의 환경설정 파일	   
- </pre>
+    $ cd /home/username/apache-tomcat/
+        apache-tomcat
+        ├── bin
+        │    ├── bootstrap.jar       <---------------- tomcat 서버가 구동될 때 사용되는 main( ) 메소드 포함
+        │    ├── tomcat-juil.jar
+        │    ├── common-daemon.jar
+        │    ├── catalina.sh         <---------------- CATALINA 서버의 제어 스크립트
+        │    ├── ciphers.sh
+        │    ├── configtest.sh       <---------------- CATALINA 서버의 설정 스크립트
+        │    ├── daemon.sh
+        │    ├── makebase.sh
+        │    ├── setclasspath.sh     <---------------- JAVA_HOME 또는 JRE_HOME이 세팅되지 않았을 경우 세팅
+        │    ├── shutdown.sh         <---------------- CATALINA 서버를 중지하는 스크립트
+        │    ├── startup.sh          <---------------- CATALINA 서버를 시작하는 스크립트
+        │    ├── tool-wrapper.sh
+        │    └── version.sht
+        ├── conf
+        │    ├── catalina.policy
+        │    ├── catalina.properties	
+        │    ├── context.xml         <---------------- 세션, 쿠키 저장 경로등을 지정하는 설정 파일
+        │    ├── logging.properties	
+        │    ├── server.xml          <---------------- Tomcat 설정에서 가장 중요, Service, Connertor 등과 같은 주요 기능 설정 가능
+        │    ├── tomcat-users.xml    <---------------- Tomcat 의 manager 기능을 사용하기 위해 사용자 권한을 설정	
+        │    └── web.xml             <---------------- Tomcat의 환경설정 파일	   
+        └── common
+
 
 ## 로그 위치 
 
