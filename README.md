@@ -22,33 +22,31 @@
 ## 디렉토리 구조
 
 <pre>
-
 $ cd /home/username/apache-tomcat/
     apache-tomcat
     ├── bin
-    │   ├── bootstrap.jar 		<----------------------- tomcat 서버가 구동될 때 사용되는 main( ) 메소드 포함
+    │   ├── bootstrap.jar 		    <----------------------- tomcat 서버가 구동될 때 사용되는 main( ) 메소드 포함
     │   ├── tomcat-juil.jar
     │   ├── common-daemon.jar
-    │   ├── catalina.sh        	<----------------------- CATALINA 서버의 제어 스크립트
+    │   ├── catalina.sh         	<----------------------- CATALINA 서버의 제어 스크립트
     │   ├── ciphers.sh
-    │   ├── configtest.sh		<----------------------- CATALINA 서버의 설정 스크립트
+    │   ├── configtest.sh		    <----------------------- CATALINA 서버의 설정 스크립트
     │   ├── daemon.sh
     │   ├── makebase.sh
-    │   ├── setclasspath.sh	      <----------------------- JAVA_HOME 또는 JRE_HOME이 세팅되지 않았을 경우 세팅
-    │   ├── shutdown.sh 		<----------------------- CATALINA 서버를 중지하는 스크립트
-    │   ├── startup.sh		      <----------------------- CATALINA 서버를 시작하는 스크립트
+    │   ├── setclasspath.sh	        <----------------------- JAVA_HOME 또는 JRE_HOME이 세팅되지 않았을 경우 세팅
+    │   ├── shutdown.sh 		    <----------------------- CATALINA 서버를 중지하는 스크립트
+    │   ├── startup.sh		        <----------------------- CATALINA 서버를 시작하는 스크립트
     │   ├── tool-wrapper.sh
     │   └── version.sht
     ├── common
     ├── conf
     │   ├── catalina.policy
     │   ├── catalina.properties	
-    │   ├── context.xml 		<----------------------- 세션, 쿠키 저장 경로등을 지정하는 설정 파일
+    │   ├── context.xml 		    <----------------------- 세션, 쿠키 저장 경로등을 지정하는 설정 파일
     │   ├── logging.properties	
-    │   ├── server.xml		      <----------------------- Tomcat 설정에서 가장 중요, Service, Connertor 등과 같은 주요 기능 설정 가능
-    │   ├── tomcat-users.xml	      <----------------------- Tomcat 의 manager 기능을 사용하기 위해 사용자 권한을 설정	
-    │   └── web.xml		      <----------------------- Tomcat의 환경설정 파일	
-   
+    │   ├── server.xml		        <----------------------- Tomcat 설정에서 가장 중요, Service, Connertor 등과 같은 주요 기능 설정 가능
+    │   ├── tomcat-users.xml	    <----------------------- Tomcat 의 manager 기능을 사용하기 위해 사용자 권한을 설정	
+    │   └── web.xml		            <----------------------- Tomcat의 환경설정 파일	   
  </pre>
 
 ## 로그 위치 
@@ -90,12 +88,11 @@ make를 하고나서 ${APACHE_HOME}/modules 폴더에 mkd_jk.so 파일이 생성
 
 ${TOMCAT_HOME}/conf의 server.xml에서 아래의 설정을 확인. 주석처리 되어있다면 주석해제
 
-<pre>
-      <Connector protocol="AJP/1.3"
-                     address="::1"
-                     port="8009"
-                     redirectPort="8443" />
-</pre>
+     <Connector protocol="AJP/1.3"
+                    address="::1"
+                    port="8009"
+                    redirectPort="8443" />
+
 
 5. Apache의 worker 설정
 
@@ -104,9 +101,9 @@ Apache와 Tomcat의 포트를 연결하는 환경설정 파일을 작성 (${APAC
 <pre>
       worker.list=worker1
 
-      worker.worker1.type=ajp13		# AJP1.3 프로토콜을 사용
+      worker.worker1.type=ajp13		      # AJP1.3 프로토콜을 사용
       worker.worker1.host=localhost	      # 톰캣은 local에서 돌고 있습니다.
-      worker.worker1.port=8009	  	# 연결할 톰캣의 포트 번호
+      worker.worker1.port=8009	  	      # 연결할 톰캣의 포트 번호
 </pre>
 
 6. Apache와 Tomcat 연동
@@ -117,11 +114,11 @@ ${APACHE_HOME}/conf에서 httpd.conf 파일에 아래의 내용을 추가
       LoadModule jk_module            modules/mod_jk.so
       <IfModule mod_jk.c>
               JkWorkersFile /usr/local/victolee/apache2.0.64/conf/workers.properties	# 실행파일
-              JkLogFile /usr/local/victolee/apache2.0.64/logs/mod_jk.log			# 로그 경로
-              JkLogLevel info							                        # 로그레벨 설정
-              JkLogStampFormat "[%a %b %d %H:%M:%S %Y]"			                  # 로그 포맷
-              JkShmFile /usr/local/victolee/apache2.0.64/logs/mod_jk.shm		      # 공유파일
-              JkMount /*.jsp worker1						                  # /*.jsp 파일은 worker1에게 넘긴다         
+              JkLogFile /usr/local/victolee/apache2.0.64/logs/mod_jk.log			    # 로그 경로
+              JkLogLevel info							                                # 로그레벨 설정
+              JkLogStampFormat "[%a %b %d %H:%M:%S %Y]"			                        # 로그 포맷
+              JkShmFile /usr/local/victolee/apache2.0.64/logs/mod_jk.shm		        # 공유파일
+              JkMount /*.jsp worker1						                            # /*.jsp 파일은 worker1에게 넘긴다         
       </IfModule>
 
 </pre>
