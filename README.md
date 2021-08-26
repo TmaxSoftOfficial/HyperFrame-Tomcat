@@ -16,7 +16,8 @@
 
 ## 검증 환경
 
-*  CentOS Linux release 6.10 (Final) 및 CentOS Linux release 7.9.2009 (Core)에서 테스트
+*  CentOS Linux release 6.10 (Final)
+*  CentOS Linux release 7.9.2009 (Core)
 
 ## 설치 및 실행
 
@@ -103,7 +104,7 @@
 
 ### 1) 환경 설정 파일 경로
 
-    $ {TOMCAT_HOME}/conf/server.xml
+    ${TOMCAT_HOME}/conf/server.xml
     
 ### 2) 환경 설정
 
@@ -144,7 +145,7 @@
                    prefix="localhost_access_log" suffix=".txt"
                    pattern="%h %l %u %t &quot;%r&quot; %s %b" />
             # https:localhost:Port/sample/, docBase = Page Directory 
-            <Context path = "/sample" docBase = "/home/minjun/tomcat/server1/sample/" />
+            <Context path = "/sample" docBase = "${TOMCAT_HOME}/sample/" />
       </Host>
       ...
 
