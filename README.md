@@ -14,6 +14,10 @@
 * Version : tomcat-connectors-1.2.48
 * Note : https://tomcat.apache.org/download-connectors.cgi
 
+## 검증 환경
+
+*  CentOS Linux release 6.10 (Final) 및 CentOS Linux release 7.9.2009 (Core)에서 테스트
+
 ## 설치 및 실행
 
 ### 1) Tomcat 압축 풀기
@@ -213,9 +217,3 @@
       ...
       
 * Nginx 및 Tomcat 기동 
-
-## 검증 내역
-
-    HyperFrameOE-Tomcat 9.0.52
-    첨부한 apache-tomcat-9.0.52.tar.gz / tomcat-connectors-1.2.48-src.tar.gz 는 CentOS Linux release 7.9.2009 (Core)에서 테스트
-    첨부한 apache-tomcat-9.0.52.tar.gz / tomcat-connectors-1.2.48-src.tar.gz 는 CentOS Linux release 6.10 (Final)에서 테스트 
