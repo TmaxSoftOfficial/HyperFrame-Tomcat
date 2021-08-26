@@ -202,9 +202,7 @@
       
 ## 2) Nginx
 
-* nginx 종료
-
-      $ ./nginx -s stop
+* 사전에 Nginx 설치가 필요 (Nginx 제품의 README.MD 파일 참고)
 
 * [Nginx] ${NGINX_HOME}/conf/nginx.conf 파일 수정
 
