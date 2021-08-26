@@ -25,7 +25,7 @@
 
     $ tar -zxf apache-tomcat-9.0.52.tar.gz
 
-### 2) 디렉토리 구조
+### 2) 디렉토리 구조 확인
 
     $ cd /home/username/apache-tomcat/
         apache-tomcat
