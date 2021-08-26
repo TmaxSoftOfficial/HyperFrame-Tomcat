@@ -162,7 +162,7 @@
       $ ./configure --with-apxs=${APACHE_HOME}/bin/apxs
       $ make & make install
 
-* ${APACHE_HOME}/modules/ Directory mod_jk.so 생성확인
+* ${APACHE_HOME}/modules/ Directory에 mod_jk.so 생성확인 
 
 * Tomcat에서 AJP 프로토콜 설정
 
