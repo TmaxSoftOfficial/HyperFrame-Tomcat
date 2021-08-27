@@ -30,28 +30,13 @@
     $ cd /home/username/apache-tomcat/
         apache-tomcat
         ├── bin
-        │    ├── bootstrap.jar      
-        │    ├── tomcat-juil.jar
-        │    ├── common-daemon.jar
-        │    ├── catalina.sh       
-        │    ├── ciphers.sh
-        │    ├── configtest.sh     
-        │    ├── daemon.sh
-        │    ├── makebase.sh
-        │    ├── setclasspath.sh   
-        │    ├── shutdown.sh      
-        │    ├── startup.sh      
-        │    ├── tool-wrapper.sh
-        │    └── version.sht
         ├── conf
-        │    ├── catalina.policy
-        │    ├── catalina.properties	
-        │    ├── context.xml      
-        │    ├── logging.properties	
-        │    ├── server.xml       
-        │    ├── tomcat-users.xml 
-        │    └── web.xml        
-        └── common
+        ├── lib
+        ├── logs
+        ├── temp       
+        ├── webapps
+        └── work     
+        
         
 ### 3) Port 확인 및 변경
 
