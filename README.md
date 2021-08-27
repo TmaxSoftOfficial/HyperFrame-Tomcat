@@ -16,9 +16,9 @@
 
 ## 검증 환경
 
-* CentOS Linux release 7.9.2009 (Core)
-* CentOS Linux release 8.4.2105
-* Ubuntu 20.04.1 LTS (GNU/Linux 5.8.0-45-generic x86_64)
+* CentOS Linux release 7.9
+* CentOS Linux release 8.4
+* Ubuntu 20.04.1 LTS
 
 ## 설치 및 실행
 
