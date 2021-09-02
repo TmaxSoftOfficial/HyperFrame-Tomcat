@@ -14,6 +14,13 @@
 * Version : tomcat-connectors-1.2.48
 * Note : https://tomcat.apache.org/download-connectors.cgi
 
+### Tomcat 지원 Java Version
+
+* Tomcat 9.0.x  : Java 8 Version 이상
+* Tomcat 8.0.x  : Java 7 Version 이상
+* Tomcat 7.0.x  : Java 6 Version 이상
+
+
 ## 검증 환경
 
 * CentOS Linux release 7.9
