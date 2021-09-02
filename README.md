@@ -63,6 +63,7 @@
 
     $ cd ${TOMCAT_HOME}/bin/
     $ ./shutdown.sh
+    
 
 ## 버전 확인
 
@@ -139,7 +140,43 @@
       </Host>
       ...
 
+## authbind 설정
 
+* authbind 설치
+    <pre>$ yum install authbind-2.1.1-0.1.x86_64.rpm</pre>
+
+* permission 변경
+    <pre>
+    $ cd $ etc/authbind/byport
+    $ touch 80
+    $ chmod 500 80</pre>
+
+* Tomcat 설정 변경
+    
+   <pre>$ vi ${TOMCAT_HOME}/bin/startup.sh</pre>
+    
+   <pre> ...
+    # 주석처리
+    # exec "$PRGDIR"/"$EXECUTABLE" start "$@"
+    # 추가
+      exec authbind --deep "$PRGDIR"/"$EXECUTABLE" start "$@"</pre>
+
+* Tomcat Port 변경
+   <pre>$ cd ${TOMCAT_HOME}/conf/server.xml</pre>
+   
+   <pre>...
+   Connector port="80" protocol="HTTP/1.1" 
+                 connectionTimeout="20000"
+                 redirectPort="8443"
+   Engine name="Catalina" defaultHost="localhost" 
+   ...</pre>
+
+* Tomcat 실행
+    
+    <pre>
+    $cd ${TOMCAT_HOME}/bin
+    $./startup.sh</pre>
+    
 ## Web Server 연동
 
 ### 1) Apache
