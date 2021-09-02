@@ -44,7 +44,7 @@
     $ vi ${TOMCAT_HOME}/conf/server.xml
     ...
     <Service name="Catalina">
-        <Connector port="80" protocol="HTTP/1.1"
+        <Connector port="8080" protocol="HTTP/1.1"
                    connectionTimeout="20000"
                    redirectPort="8443" />
     ...
