@@ -175,6 +175,8 @@
       
       ...
       <Service name="Catalina">
+      
+          <!-- Define an AJP 1.3 Connector on port 8009 -->
           <Connector protocol="AJP/1.3" address="0.0.0.0" secretRequired="false" port="8009" redirectPort="8443" />
       ...
       </Service>
@@ -186,7 +188,7 @@
       
       worker.list=worker1
       worker.worker1.type=ajp13                # AJP1.3 프로토콜을 사용
-      worker.worker1.host=${TOMCAT기동서버ip}   # 톰캣이 기동하고 있는 서버 IP를 등록   <-- 변경 필요
+      worker.worker1.host=${TOMCAT기동서버ip}   # 톰캣이 기동하고 있는 서버 IP를 등록
       worker.worker1.port=8009                  # 연결할 톰캣의 포트 번호
 
 
@@ -194,14 +196,15 @@
 * Apache와 Tomcat 연동
 
       $ vi ${APACHE_HOME}/conf/httpd.conf
+      
       LoadModule jk_module            modules/mod_jk.so
       <IfModule mod_jk.c>
-              JkWorkersFile /usr/local/victolee/apache2.0.64/conf/workers.properties    # 실행파일
-              JkLogFile /usr/local/victolee/apache2.0.64/logs/mod_jk.log                # 로그 경로
-              JkLogLevel info                                                           # 로그레벨 설정
-              JkLogStampFormat "[%a %b %d %H:%M:%S %Y]"                                 # 로그 포맷
-              JkShmFile /usr/local/victolee/apache2.0.64/logs/mod_jk.shm                # 공유파일
-              JkMount /*.jsp worker1                                                    # /*.jsp 파일은 worker1에게 넘긴다         
+              JkWorkersFile ${APACHE_HOME}/conf/workers.properties    # 실행파일
+              JkLogFile ${APACHE_HOME}/logs/mod_jk.log                # 로그 경로
+              JkLogLevel info                                         # 로그레벨 설정
+              JkLogStampFormat "[%a %b %d %H:%M:%S %Y]"               # 로그 포맷
+              JkShmFile ${APACHE_HOME}/logs/mod_jk.shm                # 공유파일
+              JkMount /*.jsp worker1                                  # /*.jsp 파일은 worker1에게 넘긴다         
       </IfModule>
       
 ## 2) Nginx
