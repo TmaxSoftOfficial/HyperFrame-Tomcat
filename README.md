@@ -171,10 +171,11 @@
 
 * Tomcat에서 AJP 프로토콜 설정
 
-      $ vi ${TOMCAT_HOME}/conf/ server.xml
+      $ vi ${TOMCAT_HOME}/conf/server.xml
+      
       ...
       <Service name="Catalina">
-          <Connector protocol="AJP/1.3" address="::1" port="8009" redirectPort="8443" />
+          <Connector protocol="AJP/1.3" address="0.0.0.0" secretRequired="false" port="8009" redirectPort="8443" />
       ...
       </Service>
       ...
@@ -182,10 +183,13 @@
 * Apache의 worker 설정
 
       $ vi ${APACHE_HOME}/conf/workers.properties/
+      
       worker.list=worker1
-      worker.worker1.type=ajp13		      # AJP1.3 프로토콜을 사용
-      worker.worker1.host=localhost	      # 톰캣은 local에서 돌고 있습니다.
-      worker.worker1.port=8009	  	      # 연결할 톰캣의 포트 번호
+      worker.worker1.type=ajp13                # AJP1.3 프로토콜을 사용
+      worker.worker1.host=${TOMCAT기동서버ip}   # 톰캣이 기동하고 있는 서버 IP를 등록   <-- 변경 필요
+      worker.worker1.port=8009                  # 연결할 톰캣의 포트 번호
+
+
 
 * Apache와 Tomcat 연동
 
