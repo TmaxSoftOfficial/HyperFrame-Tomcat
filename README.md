@@ -152,8 +152,10 @@
 
 ### 1) Apache
 
-* Apache와 Tomcat을 연동하기 위해서는 mod-jdk 플러그인이 필요
-
+* Apache와 Tomcat을 연동하기 위해서는 mod-jk 플러그인이 필요
+  - mod-jk download : https://github.com/TmaxSoftOfficial/HyperFrameOE-Apache/tree/main/binaries
+  <br>  
+  
 * tomcat-connectors-1.2.43.src.tar.gz를 다운로드 받고 아래와 같은 명령어로 압축해제
 
       $ tar xvfz tomcat-connectors-1.2.43-src.tar.gz
