@@ -16,7 +16,7 @@
 
 ### Tomcat 지원 Java Version
 
-
+* JDK Version 8.x 이상 지원
 
 ## 검증 환경
 
