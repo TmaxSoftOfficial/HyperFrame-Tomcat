@@ -17,6 +17,7 @@
 ### Tomcat 지원 Java Version
 
 * JDK Version 8.x 이상 지원
+* OpenJDK : https://jdk.java.net/
 
 ## 검증 환경
 
