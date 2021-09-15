@@ -88,15 +88,15 @@
 
 * 로그 정보
 
-  서버상에서 발생한 모든 내용을 기록한 Log
-  $ {TOMCAT_HOME}/logs/catalina.out
+      서버상에서 발생한 모든 내용을 기록한 Log
+      $ {TOMCAT_HOME}/logs/catalina.out
     
-  Tomcat에서 발생하는 Log
-  $ {TOMCAT_HOME}/logs/catalina.yyyy-mm-dd.log
+      Tomcat에서 발생하는 Log
+      $ {TOMCAT_HOME}/logs/catalina.yyyy-mm-dd.log
     
-   Tomcat Manager Web App Log
-  $ {TOMCAT_HOME}/logs/manager.log 
-    
+      Tomcat Manager Web App Log
+      $ {TOMCAT_HOME}/logs/manager.log 
+
 * 프로토콜 별 Connector 추가 및 삭제
 
       ...
