@@ -75,7 +75,7 @@
     Using CATALINA_BASE:   ${TOMCAT_HOME}
     Using CATALINA_HOME:   ${TOMCAT_HOME}
     Using CATALINA_TMPDIR: ${TOMCAT_HOME}/temp
-    Using JRE_HOME:        /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.302.b08-0.el7_9.x86_64/jre
+    Using JRE_HOME:        
     Using CLASSPATH:       ${TOMCAT_HOME}/bin/bootstrap.jar:${TOMCAT_HOME}/bin/tomcat-juli.jar
     Using CATALINA_OPTS:
     Server version: Apache Tomcat/9.0.52
