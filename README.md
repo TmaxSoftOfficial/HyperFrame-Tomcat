@@ -55,7 +55,7 @@
     $ ./shutdown.sh
     
 
-## 버전 확인
+## 버전 확인 1
 
     $ cd ${TOMCAT_HOME}/lib
     $ java -cp catalina.jar org.apache.catalina.util.ServerInfo
@@ -68,6 +68,24 @@
     JVM Version:    1.8.0_171-b11
     JVM Vendor:     Oracle Corporation
 
+## 버전 확인 2
+
+    $ cd ${TOMCAT_HOME}/bin
+    $ ./version.sh
+    Using CATALINA_BASE:   ${TOMCAT_HOME}
+    Using CATALINA_HOME:   ${TOMCAT_HOME}
+    Using CATALINA_TMPDIR: ${TOMCAT_HOME}/temp
+    Using JRE_HOME:        /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.302.b08-0.el7_9.x86_64/jre
+    Using CLASSPATH:       ${TOMCAT_HOME}/bin/bootstrap.jar:${TOMCAT_HOME}/bin/tomcat-juli.jar
+    Using CATALINA_OPTS:
+    Server version: Apache Tomcat/9.0.52
+    Server built:   Jul 31 2021 04:12:17 UTC
+    Server number:  9.0.52.0
+    OS Name:        Linux
+    OS Version:     3.10.0-1160.36.2.el7.x86_64
+    Architecture:   amd64
+    JVM Version:    1.8.0_302-b08
+    JVM Vendor:     Red Hat, Inc.
 
 ## 환경 설정 파일 정보
 
