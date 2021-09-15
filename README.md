@@ -16,8 +16,7 @@
 
 ### Tomcat 지원 Java Version
 
-* JDK Version 8.x 이상 지원
-* OpenJDK : https://jdk.java.net/
+
 
 ## 검증 환경
 
@@ -33,8 +32,8 @@
 
 ### 2) 디렉토리 구조 확인
 
-    $ cd /home/username/apache-tomcat/
-        apache-tomcat
+    $ cd ${TOMCAT_HOME}
+        hftomcat
         ├── bin
         ├── conf
         ├── lib
@@ -44,23 +43,12 @@
         └── work     
         
         
-### 3) Port 확인 및 변경
-
-    $ vi ${TOMCAT_HOME}/conf/server.xml
-    ...
-    <Service name="Catalina">
-        <Connector port="8080" protocol="HTTP/1.1"
-                   connectionTimeout="20000"
-                   redirectPort="8443" />
-    ...
-    </Service>
-
-### 4) Tomcat 실행
+### 3) Tomcat 실행
 
     $ cd ${TOMCAT_HOME}/bin/
     $ ./startup.sh
     
-### 5) Tomcat 종료
+### 4) Tomcat 종료
 
     $ cd ${TOMCAT_HOME}/bin/
     $ ./shutdown.sh
@@ -68,7 +56,7 @@
 
 ## 버전 확인
 
-    $ cd ${TOMCAT_HOME}/home/username/apache-tomcat/lib
+    $ cd ${TOMCAT_HOME}/lib
     $ java -cp catalina.jar org.apache.catalina.util.ServerInfo
     Server version: Apache Tomcat/9.0.52
     Server built:   Jul 31 2021 04:12:17 UTC
@@ -79,18 +67,6 @@
     JVM Version:    1.8.0_171-b11
     JVM Vendor:     Oracle Corporation
 
-## 로그 정보
-
-### 1) 로그 경로
-
-    # 서버상에서 발생한 모든 내용을 기록한 Log
-    $ {TOMCAT_HOME}/logs/catalina.out
-    
-    # Tomcat에서 발생하는 Log
-    $ {TOMCAT_HOME}/logs/catalina.yyyy-mm-dd.log
-    
-    # Tomcat Manager Web App Log
-    $ {TOMCAT_HOME}/logs/manager.log 
 
 ## 환경 설정 파일 정보
 
@@ -100,7 +76,7 @@
     
 ### 2) 환경 설정
 
-* Port 변경
+* Port 확인 및 변경
 
       ...
       <Service name="Catalina">
@@ -110,6 +86,17 @@
       ...
       </Service>  
 
+* 로그 정보
+
+  서버상에서 발생한 모든 내용을 기록한 Log
+  $ {TOMCAT_HOME}/logs/catalina.out
+    
+  Tomcat에서 발생하는 Log
+  $ {TOMCAT_HOME}/logs/catalina.yyyy-mm-dd.log
+    
+   Tomcat Manager Web App Log
+  $ {TOMCAT_HOME}/logs/manager.log 
+    
 * 프로토콜 별 Connector 추가 및 삭제
 
       ...
