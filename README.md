@@ -1,6 +1,6 @@
-## HyperFrameOE-Tomcat
+## HyperFrame-Tomcat
 
-업로드된 바이너리는 HyperFrame Open Edition Tomcat 제품 설치를 위한 파일
+업로드된 바이너리는 HyperFrame Tomcat 제품 설치를 위한 파일
 
 ## 설치 파일
 
@@ -153,7 +153,7 @@
 ### 1) Apache
 
 * Apache와 Tomcat을 연동하기 위해서는 mod-jk 플러그인이 필요
-  - mod-jk download : https://github.com/TmaxSoftOfficial/HyperFrameOE-Apache/tree/main/binaries
+  - mod-jk download : https://github.com/TmaxSoftOfficial/HyperFrame-Apache/tree/main/binaries
   <br>  
   
 * tomcat-connectors-1.2.43.src.tar.gz를 다운로드 받고 아래와 같은 명령어로 압축해제
