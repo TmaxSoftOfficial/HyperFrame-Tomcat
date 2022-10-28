@@ -272,7 +272,7 @@ ${TOMCAT_HOME}/conf/server.xml
 - 인증기관(CA) 개인 키 발급
     
     ```
-    $ vi ${HOME}/ssl
+    $ mkdir ${HOME}/ssl
     $ cd ssl
     $ openssl genrsa -des3 -out server.key 2048
     
